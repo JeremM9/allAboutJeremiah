@@ -1,0 +1,163 @@
+/*styles.css*/
+
+/* Color Variable Definitions for easy updates */
+:root {
+  --bg-black: #0A0A0A;      /* Deep matte background */
+  --surface-gray: #1A1A1A;  /* Lighter gray for cards/sections */
+  --text-main: #FFFFFF;     /* Pure white for headings */
+  --text-dim: #A1A1AA;      /* Muted gray for body text */
+  --accent-orange: #FF6B00; /* High-energy brand color */
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-dim);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography Functions */
+h1, h2 {
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+
+/* Vertical line styling for the timeline */
+.border-l {
+    border-color: rgba(63, 63, 70, 0.5); /* Zinc-800 with transparency */
+}
+
+/* Hover effect for education rows */
+.border-b:hover {
+    border-color: var(--accent-orange);
+    transition: border-color 0.3s ease;
+}
+/* Sticky Navigation Blur Effect */
+nav {
+    /* Gives a modern glass-morphism feel when scrolling over content */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(10, 10, 10, 0.8); 
+}
+
+/* Nav Link Interaction */
+.nav-link {
+    position: relative;
+}
+
+/* Subtle orange dot appearing under links on hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: var(--accent-orange);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 4px;
+}
+/* The Accent Button: Uses the 10% rule for color pop */
+.btn-primary {
+  background-color: var(--accent-orange);
+  color: #000; /* Black text on orange for maximum contrast */
+  padding: 1rem 2.5rem;
+  border-radius: 99px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 107, 0, 0.4);
+  background-color: #ff8533;
+}
+
+/* Image/Graphic Placeholder */
+/* Image Container Enhancements */
+.image-container {
+    background: var(--surface-gray);
+    border: 1px solid #333;
+    border-radius: 24px; /* Soft rounded corners */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Adds depth */
+}
+
+/* Adds a subtle inner glow to the image so it doesn't look flat */
+.image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+/* Ensure the image doesn't break the container's rounded corners */
+.image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Decorative Orange Glow */
+.glow-effect {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: var(--accent-oranget-orange);
+  filter: blur(120px);
+  opacity: 0.15; /* Subtle background glow for depth */
+  z-index: -1;
+}
+
+/*Style for certificate section*/
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Smooth scrolling for the slider */
+#certSlider {
+    scroll-behavior: smooth;
+    cursor: grab;
+}
+
+#certSlider:active {
+    cursor: grabbing;
+}
+
+.certificate-card {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Subtle grayscale to color transition */
+.certificate-img-box img {
+    filter: grayscale(100%) contrast(1.2);
+}
+
+.certificate-card:hover img {
+    filter: grayscale(0%) contrast(1);
+}
